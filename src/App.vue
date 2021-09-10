@@ -5,11 +5,19 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  created() {
+    axios.get("https://api.dex.guru/v1/tokens/0xa67a13c9283da5aabb199da54a9cb4cd8b9b16ba-bsc/", {  headers: {
+      "origin": "https://dex.guru/"
+    }}).then(res => {
+      console.log(res.data)
+    })
   }
 }
 </script>
