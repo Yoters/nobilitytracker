@@ -22,13 +22,13 @@
           <div class="w-full sm:max-w-xs">
             Tokens Held:
             <label for="email" class="sr-only">Tokens</label>
-            <input type="text" name="tokens" id="email" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="200000"/>
+            <input v-model="tokens" type="text" name="tokens" id="email" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="200000"/>
           </div>
 
           <div class="w-full sm:max-w-xs">
             24hr Volume:
             <label for="email" class="sr-only">Tokens</label>
-            <input type="text" name="volume" id="email" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="200000"/>
+            <input v-model="volume" v-bind:placeholder="current24HourVolume" type="text" name="volume" id="email" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"/>
           </div>
         </dl>
         <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-4">
@@ -57,6 +57,29 @@ const stats = [
   { name: "Yearly", stat: "$36,400" },
 ];
 export default {
+  data() {
+    return {
+      tokens: 0,
+      volume: this.current24HourVolume
+    }
+  },
+  computed: {
+    daily() {
+      return (this.$store.getters.volume24hUSD * .07) * (this.tokens / 56655914383.668569)
+    },
+    weekly() {
+      return this.daily * 7
+    },
+    monthly() {
+      return this.weekly * 4
+    },
+    yearly() {
+      return this.monthly * 12
+    },
+    current24HourVolume() {
+      return this.$store.getters.volume24hUSD;
+    }
+  },
   setup() {
     return {
       stats,
