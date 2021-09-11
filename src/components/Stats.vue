@@ -9,9 +9,10 @@
       <Stat v-bind:name="'24hr Volume'" v-bind:value="'$' + this.volume24hUSD" />
       
     </dl>
-    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 mx-auto">
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3 mx-auto">
       <Stat class="max-w-xs" v-bind:name="'24hr Change'" v-bind:value="this.priceChange24h" v-bind:colored="true" v-bind:suffix="'%'" />
       <Stat class="max-w-xs" v-bind:name="'Holders'" v-bind:value="'' + this.holders" />
+      <Stat class="max-w-xs" v-bind:name="'Circulating Supply'" v-bind:value="'' + this.supply + 'B'" />
     </dl>
   </div>
 </template>
@@ -41,6 +42,9 @@ export default {
     },
     holders() {
       return this.$store.getters.holders
+    },
+    supply() {
+      return (this.$store.getters.supply / 1000000000).toFixed(2)
     },
   },
 }
