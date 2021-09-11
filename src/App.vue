@@ -1,10 +1,13 @@
 <template>
-<div class="bg-gray-400">
+<div class="bg-gray-400 min-h-screen">
   <Navbar />
   <div class="body mx-auto">
     <Stats/>
     <ReflectionsCalculator/>
+    <div class="m-9">
+    </div>
   </div>
+    <Footer/>
   <div>
     <p></p>
   </div>
@@ -14,6 +17,7 @@
 import Navbar from './components/Navbar.vue'
 import Stats from './components/Stats.vue'
 import ReflectionsCalculator from './components/ReflectionsCalculator.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
@@ -21,7 +25,9 @@ export default {
     Navbar,
     Stats,
     ReflectionsCalculator,
+    Footer,
   },
+  
   mounted() {
     this.$store.dispatch("updateStats");
     setInterval(() => {
@@ -29,6 +35,7 @@ export default {
     },30000)
   }
 }
+
 </script>
 
 <style>
