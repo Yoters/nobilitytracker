@@ -35,7 +35,7 @@ export const store = createStore({
       .catch(e => {
         console.log(e)
       })
-      axios.get("http://104.161.43.123:3000/")
+      axios.get("https://api.nobilitytracker.com/")
       .then(res => {
         commit('UPDATE_SCRAPE', res.data)
       })
