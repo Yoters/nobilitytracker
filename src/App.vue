@@ -1,8 +1,9 @@
 <template>
-<div class="app">
+<div class="bg-gray-700">
   <Navbar />
   <div class="body mx-auto">
     <Stats/>
+    <ReflectionsCalculator/>
   </div>
   <div>
     <p></p>
@@ -12,13 +13,15 @@
 <script>
 import Navbar from './components/Navbar.vue'
 import Stats from './components/Stats.vue'
+import ReflectionsCalculator from './components/ReflectionsCalculator.vue'
 import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
     Navbar,
-    Stats
+    Stats,
+    ReflectionsCalculator,
   },
   data() {
     return {
