@@ -22,69 +22,91 @@
         <dl class="grid grid-cols-1 sm:grid-cols-2">
           <div class="w-full sm:max-w-xs">
             Tokens Held:
-            <label for="email" class="sr-only">tokens</label>
-            <input v-model="tokens" type="text" name="tokens" id="tokens" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-1"/>
+            <label for="number" class="sr-only">tokens</label>
+            <input v-model="tokensUnformated" type="text" name="tokens" id="tokens" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-1"/>
           </div>
 
           <div class="w-full sm:max-w-xs">
             24hr Volume:
-            <label for="email" class="sr-only">volume</label>
-            <input v-model="volume" type="text" name="volume" id="volume" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-1"/>
+            <label for="number" class="sr-only">volume</label>
+            <input v-model="volumeUnformated" type="text" name="volume" id="volume" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-1"/>
           </div>
         </dl>
         <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-4">
-          <div
-            v-for="item in stats"
-            :key="item.name"
-            class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6"
-          >
-            <dt class="text-sm font-medium text-gray-500 truncate">
-              {{ item.name }}
-            </dt>
-            <dd class="mt-1 text-xl font-semibold text-gray-900">
-              {{ item.stat }}
-            </dd>
-          </div>
+          <ReflectionsCalMetric :name="'Daily'" :stat="this.daily" />
+          <ReflectionsCalMetric :name="'Weekly'" :stat="this.weekly" />
+          <ReflectionsCalMetric :name="'Monthly'" :stat="this.monthly" />
+          <ReflectionsCalMetric :name="'Yearly'" :stat="this.yearly" />
         </dl>
       </form>
     </div>
   </div>
 </template>
 <script>
-const stats = [
-  { name: "Daily", stat: "this.daily" },
-  { name: "Weekly", stat: "this.weekly" },
-  { name: "Monthly", stat: "this.monthly" },
-  { name: "Yearly", stat: "this.yearly" },
-];
+import ReflectionsCalMetric from './internals/ReflectionsCalMetric.vue'
+
 export default {
+  components: {
+    ReflectionsCalMetric
+  },
   data() {
     return {
       tokens: 200000,
-      volume: this.current24HourVolume
+      volume: 0,
+      volumeUnformated: "",
+      tokensUnformated: "200,000"
+    }
+  },
+  watch: {
+    volumeUnformated(newValue) {
+      const result = Number(this.getNumber(newValue));
+      this.volumeUnformated = (result == 0 ? "": result.toLocaleString())
+      this.volume = result
+    },
+    tokensUnformated(newValue) {
+      const result = Number(this.getNumber(newValue));
+      this.tokensUnformated = (result == 0 ? "": result.toLocaleString())
+      this.tokens = result
+    },
+    hasDataLoaded(newValue) {
+      if(newValue) {
+        this.volumeUnformated = this.current24HourVolume.toFixed(0).toString()
+      }
+    }
+  },
+  methods: {
+    getNumber(number) {
+      // https://codepen.io/tsunet111/pen/GbpwZa
+      const arr = number.split('');
+      let out = new Array();
+      for(let cnt=0;cnt<arr.length;cnt++){
+        if(isNaN(arr[cnt])==false){
+          out.push(arr[cnt]);
+        }
+      }
+
+      return out.join('')
     }
   },
   computed: {
     daily() {
-      return (this.$store.getters.volume24hUSD * .07) * (this.tokens / this.$store.getters.supply)
+      return ((this.volume * .07) * (this.tokens / this.$store.getters.supply)).toFixed(2)
     },
     weekly() {
-      return this.daily * 7
+      return (this.daily * 7).toFixed(2)
     },
     monthly() {
-      return this.weekly * 52 / 12
+      return (this.weekly * 52 / 12).toFixed(2)
     },
     yearly() {
-      return this.monthly * 12
+      return (this.monthly * 12).toFixed(2)
     },
     current24HourVolume() {
-      return this.$store.getters.volume24hUSD;
+      return this.$store.getters.volume24hUSD
+    },
+    hasDataLoaded() {
+      return this.$store.getters.dataLoaded
     }
-  },
-  setup() {
-    return {
-      stats,
-    };
   },
 };
 </script>

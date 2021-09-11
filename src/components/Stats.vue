@@ -29,15 +29,15 @@ export default {
       return this.$store.getters.price.toFixed(6)
     },
     priceChange24h() {
-      var num = this.$store.getters.priceChange24h * 100;
+      const num = this.$store.getters.priceChange24h * 100;
       return num.toFixed(2)
     },
     volume24hUSD() {
-      var num =this.$store.getters.volume24hUSD
+      const num =this.$store.getters.volume24hUSD
       return num.toFixed()
     },
     marketcap() {
-      var num = this.$store.getters.marketcap
+      const num = this.$store.getters.marketcap
       return num.toFixed(2)
     },
     holders() {
