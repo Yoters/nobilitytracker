@@ -1,6 +1,5 @@
 <template>
 <div class="app">
-<p>Test</p>
   <Navbar />
   <div>
     <p></p>
