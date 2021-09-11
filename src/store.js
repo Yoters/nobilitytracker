@@ -37,6 +37,6 @@ export const store = createStore({
     price:(state) => (state.v2Data.token_price_usd ? state.v2Data.token_price_usd : 0),
     priceChange24h:(state) => (state.v1Data.priceChange24h ? state.v1Data.priceChange24h : 0),
     volume24hUSD:(state) => (state.v1Data.volume24hUSD ? state.v1Data.volume24hUSD : 0),
-    marketcap:(state, getters) => (59,667,242,681.2201 * getters.price) / 1000000,
+    marketcap:(state, getters) => (59667242681.2201 * getters.price) / 1000000,
   }
 });
