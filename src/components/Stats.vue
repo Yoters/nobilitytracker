@@ -7,7 +7,7 @@
       <Stat v-bind:name="'Current Price'" v-bind:value="'$' + this.price" />
       <Stat v-bind:name="'Market Cap'" v-bind:value="'$' + this.marketcap + 'M'" />
       <Stat v-bind:name="'24hr Volume'" v-bind:value="'$' + this.volume24hUSD" />
-      <Stat v-bind:name="'24hr Change'" v-bind:value="this.priceChange24h + '%'" />
+      <Stat v-bind:name="'24hr Change'" v-bind:value="this.priceChange24h" v-bind:colored="true" v-bind:suffix="'%'" />
     </dl>
   </div>
 </template>
