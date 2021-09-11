@@ -14,6 +14,9 @@
             you were to reinvest your reflections into Nobility, these amount
             would increase.</i>
         </p>
+        <p>
+          <i>All predictions made by this calculator are just that; purely predictions. Always do your own research.</i>
+        </p>
       </div>
       <form class="mt-5 sm:flex flex-col">
         <dl class="grid grid-cols-1 sm:grid-cols-2">
