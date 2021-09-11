@@ -1,8 +1,15 @@
 <template>
   <div class="mt-9">
+    <StatsModal id="statsmodal" />
+    <div class="flex">
     <h3 class="text-lg leading-6 font-medium text-gray-900">
-      Nobility Stats:
+      Nobility Stats 
     </h3>
+    
+      <svg class="ml-1" style="width:24px;height:24px" viewBox="0 0 24 24" @click.prevent="toggleModal">
+        <path fill="currentColor" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+      </svg>
+    </div>
     <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3 mx-auto content-center">
       <Stat v-bind:name="'Current Price'" v-bind:value="'$' + this.price" />
       <Stat v-bind:name="'Market Cap'" v-bind:value="'$' + this.marketcap + 'M'" />
@@ -19,10 +26,23 @@
 
 <script>
 import Stat from '../components/internals/Stat.vue'
+import StatsModal from '../components/StatsModal.vue'
 
 export default {
+  data() {
+    return{
+      modal: false
+    }
+  },
   components: {
-    Stat
+    Stat,
+    StatsModal,
+  },
+  methods: {
+    toggleModal() {
+      this.$refs.statsmodal.open = true
+      // this.modal = !this.modal
+    }
   },
   computed: {
     price() {

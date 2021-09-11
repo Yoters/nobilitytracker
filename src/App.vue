@@ -4,7 +4,6 @@
   <div class="body mx-auto">
     <Stats/>
     <ReflectionsCalculator/>
-    <StatsModal/>
   </div>
   <Footer/>
 </div>
@@ -14,7 +13,6 @@ import Navbar from './components/Navbar.vue'
 import Stats from './components/Stats.vue'
 import ReflectionsCalculator from './components/ReflectionsCalculator.vue'
 import Footer from './components/Footer.vue'
-import StatsModal from './components/StatsModal.vue'
 
 export default {
   name: 'App',
@@ -23,7 +21,6 @@ export default {
     Stats,
     ReflectionsCalculator,
     Footer,
-    StatsModal,
   },
   
   mounted() {

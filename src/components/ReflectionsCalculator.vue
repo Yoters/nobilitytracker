@@ -26,7 +26,7 @@
             <input v-model="tokensUnformated" type="text" name="tokens" id="tokens" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-1"/>
           </div>
 
-          <div class="w-full sm:max-w-xs">
+          <div class="w-full sm:max-w-xs flex">
             24hr Volume:
             <label for="number" class="sr-only">volume</label>
             <input v-model="volumeUnformated" type="text" name="volume" id="volume" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-1"/>
