@@ -1,6 +1,9 @@
 <template>
 <div class="app">
   <Navbar />
+  <div class="body mx-auto">
+    <Stats/>
+  </div>
   <div>
     <p></p>
   </div>
@@ -8,12 +11,14 @@
 </template>
 <script>
 import Navbar from './components/Navbar.vue'
+import Stats from './components/Stats.vue'
 import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
-    Navbar
+    Navbar,
+    Stats
   },
   data() {
     return {
@@ -46,4 +51,8 @@ export default {
 </script>
 
 <style>
+.body {
+  max-width: 800px;
+
+}
 </style>
