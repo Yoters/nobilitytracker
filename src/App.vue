@@ -1,5 +1,5 @@
 <template>
-<div class="bg-gray-400 min-h-screen">
+<div class="bg-gray-400 min-h-full">
   <Navbar />
   <div class="body mx-auto">
     <Stats/>
@@ -27,7 +27,7 @@ export default {
     this.$store.dispatch("updateStats");
     setInterval(() => {
       this.$store.dispatch("updateStats");
-    },30000)
+    },15000)
   }
 }
 

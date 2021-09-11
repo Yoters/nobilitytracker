@@ -7,9 +7,15 @@
           <component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
         </a>
       </div>
-      <div class="mt-8 md:mt-0 md:order-1">
+      <div class="mt-8 md:mt-0 md:order-1 mx-auto pl-24">
         <p class="text-center text-base text-gray-400">
-          &copy; 2021 Yoters Inc
+          Made with ❤ By Patrity & Rotinx
+        </p>
+        <p class="text-center text-base text-gray-400">
+          If you love this project, donations can be sent to the following address:
+        </p>
+        <p class="text-center text-base text-gray-400">
+          0xEaAcaA8d167ab0B8d064d16e17c6062623Cb2a43
         </p>
       </div>
     </div>
@@ -22,7 +28,7 @@ import { defineComponent, h } from 'vue'
 const navigation = [
   {
     name: 'Twitter',
-    href: '#',
+    href: 'https://twitter.com/ThePatrity',
     icon: defineComponent({
       render: () =>
         h('svg', { fill: 'currentColor', viewBox: '0 0 24 24' }, [
@@ -35,7 +41,7 @@ const navigation = [
   },
   {
     name: 'GitHub',
-    href: '#',
+    href: 'https://github.com/Yoters/nobilitytracker/',
     icon: defineComponent({
       render: () =>
         h('svg', { fill: 'currentColor', viewBox: '0 0 24 24' }, [
