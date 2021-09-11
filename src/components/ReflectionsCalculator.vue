@@ -10,11 +10,9 @@
           BUSD reflections from holding Nobility.
         </p>
         <p>
-          <i
-            >This calculator does not include compounding rates. For example, if
+          <i>This calculator does not include compounding rates. For example, if
             you were to reinvest your reflections into Nobility, these amount
-            would increase.</i
-          >
+            would increase.</i>
         </p>
       </div>
       <form class="mt-5 sm:flex flex-col">
@@ -65,7 +63,7 @@ export default {
   },
   computed: {
     daily() {
-      return (this.$store.getters.volume24hUSD * .07) * (this.tokens / 56655914383.668569)
+      return (this.$store.getters.volume24hUSD * .07) * (this.tokens / this.$store.getters.supply)
     },
     weekly() {
       return this.daily * 7
