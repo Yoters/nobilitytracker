@@ -24,7 +24,7 @@ export default {
       return this.$store.getters.price.toFixed(6)
     },
     priceChange24h() {
-      var num = this.$store.getters.priceChange24h;
+      var num = this.$store.getters.priceChange24h * 100;
       return num.toFixed(2)
     },
     volume24hUSD() {
