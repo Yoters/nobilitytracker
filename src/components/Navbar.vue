@@ -31,9 +31,9 @@
       </div>
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex-shrink-0 flex items-center">
-          <img class="h-8 w-auto" src="@/assets/logo.png" alt="Workflow">
+          <img class="h-12 w-auto" src="@/assets/logo.svg" alt="Workflow">
         </div>
-        <div class="hidden sm:block sm:ml-6">
+        <div class="hidden sm:flex sm:ml-6 items-center">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
