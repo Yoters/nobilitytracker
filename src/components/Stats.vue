@@ -3,11 +3,15 @@
     <h3 class="text-lg leading-6 font-medium text-gray-900">
       Nobility Stats:
     </h3>
-    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-4">
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3 mx-auto content-center">
       <Stat v-bind:name="'Current Price'" v-bind:value="'$' + this.price" />
       <Stat v-bind:name="'Market Cap'" v-bind:value="'$' + this.marketcap + 'M'" />
       <Stat v-bind:name="'24hr Volume'" v-bind:value="'$' + this.volume24hUSD" />
-      <Stat v-bind:name="'24hr Change'" v-bind:value="this.priceChange24h" v-bind:colored="true" v-bind:suffix="'%'" />
+      
+    </dl>
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 mx-auto">
+      <Stat class="max-w-xs" v-bind:name="'24hr Change'" v-bind:value="this.priceChange24h" v-bind:colored="true" v-bind:suffix="'%'" />
+      <Stat class="max-w-xs" v-bind:name="'Holders'" v-bind:value="'' + this.holders" />
     </dl>
   </div>
 </template>
@@ -34,6 +38,9 @@ export default {
     marketcap() {
       var num = this.$store.getters.marketcap
       return num.toFixed(2)
+    },
+    holders() {
+      return this.$store.getters.holders
     },
   },
 }
