@@ -1,5 +1,5 @@
 <template>
-<div class="bg-gray-700">
+<div class="bg-gray-400">
   <Navbar />
   <div class="body mx-auto">
     <Stats/>
