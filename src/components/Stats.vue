@@ -25,6 +25,9 @@ const stats = [
 ]
 
 export default {
+  computed: {
+    
+  },
   setup() {
     return {
       stats,
