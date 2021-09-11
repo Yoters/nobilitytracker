@@ -4,7 +4,8 @@ import axios from 'axios'
 export const store = createStore({
   state: {
     v1Data: {},
-    v2Data: {}
+    v2Data: {},
+    scrapeData: {}
   },
   mutations: {
     UPDATE_V1FETCH(state, data) {
@@ -12,6 +13,9 @@ export const store = createStore({
     },
     UPDATE_V2FETCH(state, data) {
       state.v2Data = data
+    },
+    UPDATE_SCRAPE(state, data) {
+      state.scrapeData = data
     }
   },
   actions: {
@@ -31,12 +35,22 @@ export const store = createStore({
       .catch(e => {
         console.log(e)
       })
-    }
+      axios.get("http://104.161.43.123:3000/")
+      .then(res => {
+        commit('UPDATE_SCRAPE', res.data)
+      })
+      .catch(e => {
+        console.log(e)
+      })
+    },
   },
   getters: {
     price:(state) => (state.v2Data.token_price_usd ? state.v2Data.token_price_usd : 0),
     priceChange24h:(state) => (state.v1Data.priceChange24h ? state.v1Data.priceChange24h : 0),
     volume24hUSD:(state) => (state.v1Data.volume24hUSD ? state.v1Data.volume24hUSD : 0),
     marketcap:(state, getters) => (59667242681.2201 * getters.price) / 1000000,
+    holders:(state) => (state.scrapeData.totalHolders ? state.scrapeData.totalHolders : 0),
+    supply:(state) => (state.scrapeData.totalSupply ? state.scrapeData.totalSupply : 0)
+
   }
 });
