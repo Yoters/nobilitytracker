@@ -17,7 +17,7 @@
           >
         </p>
       </div>
-      <form class="mt-5 sm:flex sm:items-center">
+      <form class="mt-5 sm:flex flex-col">
         <dl class="grid grid-cols-1 sm:grid-cols-2">
           <div class="w-full sm:max-w-xs">
             Tokens Held:

@@ -4,13 +4,8 @@
   <div class="body mx-auto">
     <Stats/>
     <ReflectionsCalculator/>
-    <div class="m-9">
-    </div>
   </div>
-    <Footer/>
-  <div>
-    <p></p>
-  </div>
+  <Footer/>
 </div>
 </template>
 <script>
@@ -41,6 +36,5 @@ export default {
 <style>
 .body {
   max-width: 800px;
-
 }
 </style>
