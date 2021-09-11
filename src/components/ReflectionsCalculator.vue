@@ -20,13 +20,13 @@
           <div class="w-full sm:max-w-xs">
             Tokens Held:
             <label for="email" class="sr-only">tokens</label>
-            <input v-model="tokens" type="text" name="tokens" id="email" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"/>
+            <input v-model="tokens" type="text" name="tokens" id="tokens" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-1"/>
           </div>
 
           <div class="w-full sm:max-w-xs">
             24hr Volume:
             <label for="email" class="sr-only">volume</label>
-            <input v-model="volume" type="text" name="volume" id="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"/>
+            <input v-model="volume" type="text" name="volume" id="volume" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-1"/>
           </div>
         </dl>
         <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-4">
