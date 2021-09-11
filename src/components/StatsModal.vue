@@ -10,8 +10,10 @@
         <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-200" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
           <div class="inline-block align-bottom bg-gray-200 rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
             <div>
-              <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100">
-                <!-- MDI Info Icon HERE -->
+              <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-200">
+                <svg style="width:32px;height:32px" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+                </svg>
               </div>
               <div class="mt-3 text-center sm:mt-5">
                 <DialogTitle as="h3" class="text-lg leading-6 font-medium text-gray-900">
@@ -19,7 +21,7 @@
                 </DialogTitle>
                 <div class="mt-2">
                   <p class="text-sm text-gray-500">
-                    We gather the latest data from DexTools V1 and V2 API as well as BSC Scan. There may be differences among other platforms.
+                    We gather the latest data from DexTools V1 and V2 API as well as BSC Scan every 30 seconds. There may be differences among other platforms.
                   </p>
                 </div>
               </div>
