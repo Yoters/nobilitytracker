@@ -12,9 +12,8 @@ export const store = createStore({
   },
   actions: {
     updateStats({commit}) {
-      axios.get("http://localhost:6969/")
+      axios.get("https://api.nobilitytracker.com/")
       .then(res => {
-        console.log(res.data)
         commit('UPDATE_DATA', res.data)
       })
       .catch(e => {
