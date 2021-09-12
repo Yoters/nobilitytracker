@@ -26,7 +26,10 @@
       <form class="mt-5 sm:flex flex-col">
         <dl class="grid grid-cols-1 sm:grid-cols-2">
           <div class="w-full sm:max-w-xs">
+            <div class="flex">
             Tokens Held:
+            <div v-if="tokens < 200000" class="ml-4 font-semibold text-red-500">Tokens must be over 200k!</div>
+            </div>
             <label for="number" class="sr-only">tokens</label>
             <input v-model="tokensUnformated" type="text" name="tokens" id="tokens" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-1"/>
           </div>
