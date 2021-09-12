@@ -1,5 +1,6 @@
 <template>
   <div class="bg-white shadow sm:rounded-lg mt-5">
+    <VolumeModal ref="volumemodal" />
     <div class="px-4 py-5 sm:p-6">
       <h3 class="text-lg leading-6 font-medium text-gray-900">
         Reflections Calculator
@@ -26,17 +27,22 @@
             <input v-model="tokensUnformated" type="text" name="tokens" id="tokens" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-1"/>
           </div>
 
-          <div class="w-full sm:max-w-xs flex">
+          <div class="w-full sm:max-w-xs">
+            <div class="flex">
+            <svg class="mr-1 cursor-pointer" style="width:24px;height:24px" viewBox="0 0 24 24" @click.prevent="toggleModal">
+              <path fill="currentColor" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+            </svg>
             24hr Volume:
+            </div>
             <label for="number" class="sr-only">volume</label>
             <input v-model="volumeUnformated" type="text" name="volume" id="volume" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-1"/>
           </div>
         </dl>
         <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-4">
-          <ReflectionsCalMetric :name="'Daily'" :stat="this.daily" />
-          <ReflectionsCalMetric :name="'Weekly'" :stat="this.weekly" />
-          <ReflectionsCalMetric :name="'Monthly'" :stat="this.monthly" />
-          <ReflectionsCalMetric :name="'Yearly'" :stat="this.yearly" />
+          <ReflectionsCalMetric :name="'Daily'" :stat="'$' + this.daily" />
+          <ReflectionsCalMetric :name="'Weekly'" :stat="'$' + this.weekly" />
+          <ReflectionsCalMetric :name="'Monthly'" :stat="'$' + this.monthly" />
+          <ReflectionsCalMetric :name="'Yearly'" :stat="'$' + this.yearly" />
         </dl>
       </form>
     </div>
@@ -44,10 +50,11 @@
 </template>
 <script>
 import ReflectionsCalMetric from './internals/ReflectionsCalMetric.vue'
-
+import VolumeModal from '../components/VolumeModal.vue'
 export default {
   components: {
-    ReflectionsCalMetric
+    ReflectionsCalMetric,
+    VolumeModal
   },
   data() {
     return {
@@ -75,6 +82,9 @@ export default {
     }
   },
   methods: {
+    toggleModal() {
+      this.$refs.volumemodal.open = true
+    },
     getNumber(number) {
       // https://codepen.io/tsunet111/pen/GbpwZa
       const arr = number.split('');
