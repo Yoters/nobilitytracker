@@ -45,11 +45,13 @@
             <input v-model="volumeUnformated" type="text" name="volume" id="volume" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-1"/>
           </div>
         </dl>
-        <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-4">
+        <dl class="mt-5 grid grid-cols-3 gap-5 sm:grid-cols-3">
+          <ReflectionsCalMetric :name="'Total Price:'" :stat="'$' + this.yourPrice" />
           <ReflectionsCalMetric :name="'Daily'" :stat="'$' + this.daily" />
           <ReflectionsCalMetric :name="'Weekly'" :stat="'$' + this.weekly" />
           <ReflectionsCalMetric :name="'Monthly'" :stat="'$' + this.monthly" />
           <ReflectionsCalMetric :name="'Yearly'" :stat="'$' + this.yearly" />
+          <ReflectionsCalMetric :name="'5 Years'" :stat="'$' + this.fiveyear" />
         </dl>
       </form>
     </div>
@@ -121,6 +123,12 @@ export default {
     },
     yearly() {
       return (this.monthly * 12).toFixed(2)
+    },
+    fiveyear() {
+      return (this.monthly * 60).toFixed(2)
+    },
+    yourPrice() {
+      return (this.$store.getters.price * this.tokens).toFixed(2)
     },
     current24HourVolume() {
       return this.$store.getters.volume24hUSD
