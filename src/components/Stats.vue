@@ -1,12 +1,12 @@
 <template>
   <div class="mt-9">
-    <StatsModal id="statsmodal" />
+    <StatsModal ref="statsmodal" />
     <div class="flex">
     <h3 class="text-lg leading-6 font-medium text-gray-900">
       Nobility Stats 
     </h3>
     
-      <svg class="ml-1" style="width:24px;height:24px" viewBox="0 0 24 24" @click.prevent="toggleModal">
+      <svg class="ml-1 cursor-pointer" style="width:24px;height:24px" viewBox="0 0 24 24" @click.prevent="toggleModal">
         <path fill="currentColor" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
       </svg>
     </div>
@@ -41,7 +41,6 @@ export default {
   methods: {
     toggleModal() {
       this.$refs.statsmodal.open = true
-      // this.modal = !this.modal
     }
   },
   computed: {

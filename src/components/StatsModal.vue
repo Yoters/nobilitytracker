@@ -51,7 +51,7 @@ export default {
     TransitionRoot,
   },
   setup() {
-    const open = ref(true)
+    const open = ref(false)
 
     return {
       open,
