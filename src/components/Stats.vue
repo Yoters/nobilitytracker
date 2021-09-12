@@ -53,7 +53,7 @@ export default {
     },
     volume24hUSD() {
       const num =this.$store.getters.volume24hUSD
-      return num.toFixed()
+      return num.toLocaleString()
     },
     marketcap() {
       const num = this.$store.getters.marketcap
