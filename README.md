@@ -1,5 +1,8 @@
 # nobilitytracker
 
+## Backend API
+This project relies on a backend api to cache data from various sources. Source code: [Here](https://github.com/Yoters/nobilitytracker-backend)
+
 ## Project setup
 ```
 npm install
