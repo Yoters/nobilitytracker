@@ -20,7 +20,7 @@
           If you love this project, donations can be sent to the following
           address:
         </p>
-        <a href="https://bscscan.com/address/0xEaAcaA8d167ab0B8d064d16e17c6062623Cb2a43" target="_blank" class="text-center text-base text-gray-400 flex justify-center">
+        <a href="https://bscscan.com/address/0xEaAcaA8d167ab0B8d064d16e17c6062623Cb2a43" target="_blank" class="text-center text-sm md:text-base text-gray-400 flex justify-center">
           0xEaAcaA8d167ab0B8d064d16e17c6062623Cb2a43
         </a>
       </div>

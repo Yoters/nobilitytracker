@@ -25,7 +25,7 @@
       </div>
       <form class="mt-5 sm:flex flex-col">
         <dl class="grid grid-cols-1 sm:grid-cols-2">
-          <div class="w-full sm:max-w-xs">
+          <div class="w-full sm:max-w-xs mt-4">
             <div class="flex">
             Tokens Held:
             <div v-if="tokens < 200000" class="ml-4 font-semibold text-red-500">Tokens must be over 200k!</div>
@@ -34,7 +34,7 @@
             <input v-model="tokensUnformated" type="text" name="tokens" id="tokens" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm bg-purple-200 border-gray-300 rounded-md p-1"/>
           </div>
 
-          <div class="w-full sm:max-w-xs">
+          <div class="w-full sm:max-w-xs mt-4">
             <div class="flex">
             <svg class="mr-1 cursor-pointer" style="width:24px;height:24px" viewBox="0 0 24 24" @click.prevent="toggleModal">
               <path fill="currentColor" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
@@ -45,7 +45,7 @@
             <input v-model="volumeUnformated" type="text" name="volume" id="volume" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 bg-purple-200 rounded-md p-1"/>
           </div>
         </dl>
-        <dl class="mt-5 grid grid-cols-3 gap-5 sm:grid-cols-3">
+        <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
           <ReflectionsCalMetric :name="'Total Price:'" :stat="'$' + this.yourPrice" />
           <ReflectionsCalMetric :name="'Daily'" :stat="'$' + this.daily" />
           <ReflectionsCalMetric :name="'Weekly'" :stat="'$' + this.weekly" />
