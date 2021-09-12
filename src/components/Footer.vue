@@ -14,15 +14,15 @@
           </a>
         </div>
         <p class="text-center text-base text-gray-400">
-          Made with ❤ By Patrity & Rotinx
+          Made with ❤ By <a href="https://twitter.com/ThePatrity" target="_blank">Patrity</a> & <a href="https://twitter.com/esrotinx" target="_blank">Rotinx</a>
         </p>
         <p class="text-center text-base text-gray-400">
           If you love this project, donations can be sent to the following
           address:
         </p>
-        <p class="text-center text-base text-gray-400">
+        <a href="https://bscscan.com/address/0xEaAcaA8d167ab0B8d064d16e17c6062623Cb2a43" target="_blank" class="text-center text-base text-gray-400 flex justify-center">
           0xEaAcaA8d167ab0B8d064d16e17c6062623Cb2a43
-        </p>
+        </a>
       </div>
     </div>
   </footer>
