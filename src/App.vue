@@ -1,5 +1,5 @@
 <template>
-<div class="bg-gray-400 min-h-full">
+<div class="bg-gray-400 dark:bg-gray-900 min-h-full dark:text-gray-200">
   <Navbar />
   <router-view />
   <Footer/>

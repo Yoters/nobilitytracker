@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center">
-      <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6 max-w-xs w-full">
+      <div class="px-4 py-5 bg-white dark:bg-gray-600 shadow rounded-lg overflow-hidden sm:p-6 max-w-xs w-full">
       <dt class="text-sm font-medium text-gray-500 truncate">
         {{ name }}
       </dt>

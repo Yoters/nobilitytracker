@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-white shadow sm:rounded-lg mt-5">
+  <div class="bg-white dark:bg-gray-600 shadow sm:rounded-lg mt-5">
     <VolumeModal ref="volumemodal" />
     <div class="px-4 py-5 sm:p-6">
-      <h3 class="text-lg leading-6 font-medium text-gray-900">
+      <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-500">
         Reflections Calculator
       </h3>
-      <div class="mt-2 max-w-xl text-sm text-gray-500">
+      <div class="mt-2 max-w-xl text-sm text-gray-500 dark:text-gray-300">
         <p>
           This calculator can help you to determine how much you will make in
           BUSD reflections from holding Nobility.
@@ -31,7 +31,7 @@
             <div v-if="tokens < 200000" class="ml-4 font-semibold text-red-500">Tokens must be over 200k!</div>
             </div>
             <label for="number" class="sr-only">tokens</label>
-            <input v-model="tokensUnformated" type="text" name="tokens" id="tokens" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm bg-purple-200 border-gray-300 rounded-md p-1"/>
+            <input v-model="tokensUnformated" type="text" name="tokens" id="tokens" class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm bg-purple-200 border-gray-300 dark:text-gray-900 rounded-md p-1"/>
           </div>
 
           <div class="w-full sm:max-w-xs mt-4">
@@ -42,7 +42,7 @@
             24hr Volume:
             </div>
             <label for="number" class="sr-only">volume</label>
-            <input v-model="volumeUnformated" type="text" name="volume" id="volume" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 bg-purple-200 rounded-md p-1"/>
+            <input v-model="volumeUnformated" type="text" name="volume" id="volume" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 bg-purple-200 dark:text-gray-900 rounded-md p-1"/>
           </div>
         </dl>
         <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
