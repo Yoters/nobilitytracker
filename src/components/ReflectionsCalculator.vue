@@ -11,6 +11,10 @@
           BUSD reflections from holding Nobility.
         </p>
         <p>
+          <b>**Please Remember** You <u>MUST</u> hold 200k tokens or more to receive reflections!</b>
+        </p>
+        <br>
+        <p>
           <i>This calculator does not include compounding rates. For example, if
             you were to reinvest your reflections into Nobility, these amount
             would increase.</i>
@@ -100,7 +104,11 @@ export default {
   },
   computed: {
     daily() {
-      return ((this.volume * .07) * (this.tokens / this.$store.getters.supply)).toFixed(2)
+      if(this.tokens < 200000) {
+        return 0
+      } else {
+        return ((this.volume * .07) * (this.tokens / this.$store.getters.supply)).toFixed(2)
+      }
     },
     weekly() {
       return (this.daily * 7).toFixed(2)
