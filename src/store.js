@@ -33,6 +33,7 @@ export const store = createStore({
     marketcap:(state, getters) => (59667242681.2201 * getters.price) / 1000000,
     holders:(state) => (state.scrapeData.totalHolders ? state.scrapeData.totalHolders : 0),
     supply:(state) => (state.scrapeData.totalSupply ? state.scrapeData.totalSupply : 0),
+    lBank: (state) => (state.scrapeData.lBank),
     dataLoaded:(state) => state.loaded
   }
 });

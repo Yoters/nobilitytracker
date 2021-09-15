@@ -18,6 +18,14 @@
       <Stat v-bind:name="'Holders'" v-bind:value="'' + this.holders" />
       <Stat v-bind:name="'Circulating Supply'" v-bind:value="'' + this.supply + 'B'" />
     </dl>
+    <hr class="mt-6">
+    <h3 class="mx-auto text-xl font-medium mt-2">LBank</h3>
+    <dl class="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-3 mx-auto">
+      <Stat v-bind:name="'Price'" v-bind:value="'$' + this.lBankPrice + ''" />
+      <Stat v-bind:name="'Volume'" v-bind:value="'$' + this.lBank + ''" />
+      <Stat v-bind:name="'24hr Change'" v-bind:value="this.lBankChange" v-bind:colored="true" v-bind:suffix="'%'" />
+    </dl>
+    <hr class="mt-6">
   </div>
 </template>
 
@@ -62,6 +70,18 @@ export default {
     supply() {
       return (this.$store.getters.supply / 1000000000).toFixed(2)
     },
+    lBankPrice() {
+      var price = _.get(this.$store.getters.lBank, 'data[0].ticker.latest')
+      return price
+    },
+    lBankChange() {
+      return _.get(this.$store.getters.lBank, 'data[0].ticker.change')
+    },
+    lBank() {
+      var vol = _.get(this.$store.getters.lBank, 'data[0].ticker.vol')
+      return (vol * this.lBankPrice).toFixed(2)
+    },
   },
 }
+var _ = require('lodash');
 </script>
