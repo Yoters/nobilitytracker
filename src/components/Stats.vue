@@ -1,6 +1,7 @@
 <template>
   <div class="mt-9">
     <StatsModal ref="statsmodal" />
+    <lBankModal ref="lBankModal" />
     <div class="flex justify-center lg:justify-start">
       <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-300">
         Nobility Stats 
@@ -19,7 +20,17 @@
       <Stat v-bind:name="'Circulating Supply'" v-bind:value="'' + this.supply + 'B'" />
     </dl>
     <hr class="mt-6">
-    <h3 class="mx-auto text-xl font-medium mt-2">LBank</h3>
+    <div class="flex justify-center lg:justify-start mt-2">
+    <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-300">LBank</h3>
+      <svg class="ml-1 cursor-pointer" style="width:24px;height:24px" viewBox="0 0 24 24" @click.prevent="togglelBankModal">
+        <path fill="currentColor" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+      </svg>
+      <a href="https://www.lbank.info/exchange/nbl/usdt" target="_blank">
+        <svg style="width:24px;height:24px" viewBox="0 0 24 24" class="ml-1">
+          <path fill="currentColor" d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+        </svg>
+      </a>
+    </div>
     <dl class="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-3 mx-auto">
       <Stat v-bind:name="'Price'" v-bind:value="'$' + this.lBankPrice + ''" />
       <Stat v-bind:name="'Volume'" v-bind:value="'$' + this.lBank + ''" />
@@ -32,6 +43,7 @@
 <script>
 import Stat from '../components/internals/Stat.vue'
 import StatsModal from '../components/StatsModal.vue'
+import lBankModal from '../components/lBankModal.vue'
 
 export default {
   data() {
@@ -42,10 +54,14 @@ export default {
   components: {
     Stat,
     StatsModal,
+    lBankModal
   },
   methods: {
     toggleModal() {
       this.$refs.statsmodal.open = true
+    },
+    togglelBankModal() {
+      this.$refs.lBankModal.open = true
     }
   },
   computed: {
