@@ -45,7 +45,7 @@
       </a>
     </div>
     <dl class="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-3 mx-auto">
-      <Stat v-bind:name="'Price'" v-bind:value="'$' + this.lBankPrice + ''" />
+      <Stat v-bind:name="'Price'" v-bind:value="'$' + this.formatedLBankPrice + ''" />
       <Stat v-bind:name="'Volume'" v-bind:value="'$' + this.lBank + ''" />
       <Stat v-bind:name="'24hr Change'" v-bind:value="this.lBankChange" v-bind:colored="true" v-bind:suffix="'%'" />
     </dl>
@@ -58,6 +58,8 @@ import Stat from '../components/internals/Stat.vue'
 import StatsModal from '../components/StatsModal.vue'
 import lBankModal from '../components/lBankModal.vue'
 import PcsModal from '../components/PcsModal.vue'
+
+const _ = require('lodash');
 
 export default {
   data() {
@@ -105,17 +107,19 @@ export default {
       return (this.$store.getters.supply / 1000000000).toFixed(2)
     },
     lBankPrice() {
-      var price = _.get(this.$store.getters.lBank, 'data[0].ticker.latest')
+      const price = _.get(this.$store.getters.lBank, 'data[0].ticker.latest')
       return price
     },
     lBankChange() {
       return _.get(this.$store.getters.lBank, 'data[0].ticker.change')
     },
     lBank() {
-      var vol = _.get(this.$store.getters.lBank, 'data[0].ticker.vol')
+      const vol = _.get(this.$store.getters.lBank, 'data[0].ticker.vol')
       return (vol * this.lBankPrice).toFixed(2)
     },
+    formatedLBankPrice() {
+      return parseFloat(this.lBankPrice).toFixed(6);
+    }
   },
 }
-var _ = require('lodash');
 </script>
