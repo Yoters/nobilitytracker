@@ -67,10 +67,10 @@ export default {
   },
   data() {
     return {
-      tokens: 200000,
+      tokens: this.$cookies.get('tokensAmount') || 200000,
       volume: 0,
       volumeUnformated: "",
-      tokensUnformated: "200,000"
+      tokensUnformated: this.$cookies.get('tokensFormatted') || "200,000"
     }
   },
   watch: {
@@ -82,6 +82,8 @@ export default {
     tokensUnformated(newValue) {
       const result = Number(this.getNumber(newValue));
       this.tokensUnformated = (result == 0 ? "": result.toLocaleString())
+      this.$cookies.set('tokensAmount', result)
+      this.$cookies.set('tokensFormatted', this.tokensUnformated)
       this.tokens = result
     },
     hasDataLoaded(newValue) {
