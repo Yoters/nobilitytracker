@@ -56,6 +56,7 @@
       </form>
     </div>
   </div>
+  <hr class="mt-6">
 </template>
 <script>
 import ReflectionsCalMetric from './internals/ReflectionsCalMetric.vue'
