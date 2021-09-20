@@ -16,7 +16,8 @@
     "vue-analytics": "^5.22.1",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2",
-    "web3": "^1.5.2"
+    "web3": "^1.5.2",
+    "vue3-cookies": "^1.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.2.14",
