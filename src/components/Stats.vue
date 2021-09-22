@@ -27,10 +27,14 @@
     <dl class="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-3 mx-auto">
       <Stat v-bind:name="'Current Price'" v-bind:value="'$' + this.price" />
       <Stat v-bind:name="'Market Cap'" v-bind:value="'$' + this.marketcap + 'M'" />
-      <Stat v-bind:name="'24hr Volume'" v-bind:value="'$' + this.volume24hUSD" />
-      <Stat v-bind:name="'24hr Change'" v-bind:value="this.priceChange24h" v-bind:colored="true" v-bind:suffix="'%'" />
-      <Stat v-bind:name="'Holders'" v-bind:value="'' + this.holders" />
       <Stat v-bind:name="'Circulating Supply'" v-bind:value="'' + this.supply + 'B'" />
+      <Stat v-bind:name="'24hr Volume'" v-bind:value="'$' + this.volume24hUSD" />
+      <Stat v-bind:name="'Holders'" v-bind:value="'' + this.holders" />
+      <Stat v-bind:name="'24hr Change'" v-bind:value="this.priceChange24h" v-bind:colored="true" v-bind:suffix="'%'" />
+    </dl>
+    <dl class="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-2 mx-auto">
+      <Stat v-bind:name="'7 day Change'" v-bind:value="this.priceChange7d" v-bind:colored="true" v-bind:suffix="'%'" />
+      <Stat v-bind:name="'30 day Change'" v-bind:value="this.priceChange30d" v-bind:colored="true" v-bind:suffix="'%'" />
     </dl>
     <hr class="mt-6">
     <div class="flex justify-center lg:justify-start mt-2">
@@ -90,6 +94,14 @@ export default {
     },
     priceChange24h() {
       const num = this.$store.getters.priceChange24h;
+      return num.toFixed(2)
+    },
+    priceChange7d() {
+      const num = this.$store.getters.priceChange7d;
+      return num.toFixed(2)
+    },
+    priceChange30d() {
+      const num = this.$store.getters.priceChange30d;
       return num.toFixed(2)
     },
     volume24hUSD() {

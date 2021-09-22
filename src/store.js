@@ -29,6 +29,8 @@ export const store = createStore({
   getters: {
     price:(state) => (state.scrapeData.priceUSD ? state.scrapeData.priceUSD : 0),
     priceChange24h:(state) => (state.scrapeData.priceChange24h ? state.scrapeData.priceChange24h : 0),
+    priceChange7d:(state) => (state.scrapeData.priceChange7d ? state.scrapeData.priceChange7d : 0),
+    priceChange30d:(state) => (state.scrapeData.priceChange30d ? state.scrapeData.priceChange30d : 0),
     volume24hUSD:(state) => (state.scrapeData.volume24hUSD ? state.scrapeData.volume24hUSD : 0),
     marketcap:(state, getters) => (59667242681.2201 * getters.price) / 1000000,
     holders:(state) => (state.scrapeData.totalHolders ? state.scrapeData.totalHolders : 0),
